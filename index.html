@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>Build Process</title>
+    </head>
+    <body>
+        <div id="diagram"></div>
+<textarea id="language" cols="50" rows="10" style="display:none">
+Start Build -> Dev Done: 
+Note right of Start Build: 1. Code Complete \n 2. Unit Tests Completed \n 3. Pull Requests Created \n 4. Test Branch Created
+Dev Done -> Isolation Complete: 
+Note right of Dev Done: 1. Manual Testing \n 2. Test Automation 
+Isolation Complete -> In Staging: 
+Note right of Isolation Complete: 1. Merge UI, API & Test Pull Requests \n 2. Deploy Code onto Staging \n 3. Run Regression on Staging
+In Staging -> Production Ready: 
+Note right of In Staging: 1. Regression Successful \n 2. Miller Time!
+</textarea>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="lodash.min.js"></script>
+        <script src="raphael-min.js"></script>
+        <script src="sequence-diagram-min.js"></script>
+        <script>
+            var plot = "Start Build -> Dev Done: Branch(es) deployed on VM"
+            var diagram = Diagram.parse($('#language').val());
+            diagram.drawSVG('diagram', {theme:'simple'});
+        </script>
+    </body>
+</html>
